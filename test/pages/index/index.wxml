@@ -1,0 +1,46 @@
+<!--
+ * @Author: 殷清贺 987746808@qq.com
+ * @Date: 2023-02-03 17:43:39
+ * @LastEditors: 殷清贺 987746808@qq.com
+ * @LastEditTime: 2023-02-03 18:56:27
+ * @FilePath: \test\pages\index\index.wxml
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
+<!--index.wxml-->
+<view class="container">
+  <!-- <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{!hasUserInfo}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view> -->
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>
+    <van-button type="primary">按钮</van-button>
+    <van-button type="primary" bindtap="toMy">跳转到个人中心</van-button>
+
+    <van-cell title="选择单个日期" value="{{ date }}" bind:click="onDisplay" />
+    <van-calendar show="{{ show }}" bind:close="onClose" bind:confirm="onConfirm" />
+  </view>
+
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+    <van-cell title="选择单个日期" />
+    <van-cell-group>
+      <van-field value="{{ value }}" placeholder="请输入用户名" border="{{ false }}" bind:change="onChange" />
+    </van-cell-group>
+  </view>
+</view>

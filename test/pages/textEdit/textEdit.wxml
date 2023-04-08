@@ -1,0 +1,51 @@
+<!--pages/textEdit/textEdit.wxml-->
+<view>
+    <view>
+        <picker mode="selector" bindchange='bindPickerChange' model: value="{{index}}" range="{{array}}">
+            <view class="picker">
+                作业作品类型：{{array[index]}}
+            </view>
+        </picker>
+    </view>
+    <view>
+        <van-field label="作业标题" model:value="{{ title }}" placeholder="请输入作业作品标题" border="{{ false }}"
+            bind:change="onChange" class="title" />
+    </view>
+    <!-- 编辑区 -->
+    <view class="container">
+        <view class="page-body">
+            <image model:src="{{images[0]}}" wx:if="{{this.data.images.length === 0}}" />
+            <video model:src="{{video}}" wx:if="{{video}}"></video>
+            <view class='wrapper'>
+                <!-- 操作栏 -->
+                <view class='toolbar' bindtap="format">
+                    <i class="iconfont icon-zitijiacu {{formats.bold ? 'ql-active' : ''}}" data-name="bold"></i>
+                    <i class="iconfont icon-zitixieti {{formats.italic ? 'ql-active' : ''}}" data-name="italic"></i>
+                    <i class="iconfont icon-zitixiahuaxian {{formats.underline ? 'ql-active' : ''}}"
+                        data-name="underline"></i>
+                    <i class="iconfont icon-zuoduiqi {{formats.align === 'left' ? 'ql-active' : ''}}" data-name="align"
+                        data-value="left"></i>
+                    <i class="iconfont icon-juzhongduiqi {{formats.align === 'center' ? 'ql-active' : ''}}"
+                        data-name="align" data-value="center"></i>
+                    <i class="iconfont icon-youduiqi {{formats.align === 'right' ? 'ql-active' : ''}}" data-name="align"
+                        data-value="right"></i>
+                    <i class="iconfont icon-undo" bindtap="undo"></i>
+                    <i class="iconfont icon-redo" bindtap="redo"></i>
+                    <i class="iconfont icon-charutupian" bindtap="insertImage"></i>
+                    <i class="iconfont icon-shipin" bindtap="insertVedio"></i>
+                    <i class="iconfont icon-shanchu" bindtap="clear"></i>
+
+                </view>
+                <!-- 文章内容区，富文本编辑器 -->
+                <editor id="editor" class="ql-container editor" show-img-size bindblur="onEditorBlur"
+                    placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize
+                    bindstatuschange="onStatusChange" read-only="{{readOnly}}" bindinput="onInput"
+                     model:value="{{editorContent}}"
+                    bindready="onEditorReady">
+                </editor>
+
+                <view class="button" bindtap="formSubmit">提交</view>
+            </view>
+        </view>
+    </view>
+</view>

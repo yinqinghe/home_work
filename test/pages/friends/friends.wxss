@@ -1,0 +1,5 @@
+/* pages/my.wxss */
+
+.show-pic{
+    top:50%
+}

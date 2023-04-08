@@ -1,0 +1,7 @@
+<!--pages/home/home.wxml-->
+<text>pages/home/home.wxml</text>
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <navigation placeholderText=""></navigation>
+<van-search value="{{ value }}" placeholder = "{{placeholderText}} "/>
+    
+</view>

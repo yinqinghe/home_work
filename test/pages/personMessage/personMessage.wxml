@@ -1,0 +1,81 @@
+<!--pages/personMessage/personMessage.wxml-->
+<view>
+    <view class="images" wx:if="{{pictureShow}}">
+        <van-image round width="8rem" height="8rem" model:src="{{picture}}" />
+        <van-button type="default" bindtap="changePicture">更改头像</van-button>
+    </view>
+    <view wx:else class="uploadFile">
+        <van-uploader bind:after-read="upload" file-list="{{ fileList }}" />
+    </view>
+    <view class="font">
+        <van-cell title="姓名" model:value="{{ pname }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="年龄" model:value="{{ age }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="邮箱" model:value="{{ email }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="手机号" model:value="{{ phone }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="家庭住址" model:value="{{ address }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="就读的学校" model:value="{{ school }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="所属生肖" model:value="{{ animal }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="生日日期" model:value="{{ birthday }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="用户名" model:value="{{ username }}" custom-class="customfont" value-class="valuefont" />
+        <van-cell title="昵称" model:value="{{ nickname }}" custom-class="customfont" value-class="valuefont" />
+
+        <view>
+        </view>
+    </view>
+
+    <van-button bindtap="showForm" class="update" type="primary">修改个人信息</van-button>
+
+    <view class='popup'>
+        <van-popup custom-style="width:350px;height:700px; border-radius: 10px;top:380px" show="{{ show }}"
+            bind:close="onClose">
+            <form>
+                <!-- add your form fields here -->
+                <van-cell-group>
+                    <van-field model:value="{{ pname }}" placeholder="请输入你的姓名" border="{{ false }}" label="姓名"
+                        custom-style="margin-top:10px" />
+
+                    <van-field model:value="{{ age }}" is-link readonly label="年龄" placeholder="请选择你的年龄"
+                        bind:tap="onClickage" />
+                    <van-field model:value="{{ email }}" placeholder="请输入你的邮箱" border="{{ false }}" label="邮箱"
+                        custom-style="margin-top:10px" />
+                    <van-field model:value="{{ phone }}" placeholder="请输入你的手机号" border="{{ false }}" label="手机号"
+                        custom-style="margin-top:10px" />
+                    <van-field model:value="{{ address }}" placeholder="请输入你的家庭住址" border="{{ false }}" label="家庭住址"
+                        custom-style="margin-top:10px" />
+                    <van-field model:value="{{ school }}" placeholder="请输入你就读的学校" border="{{ false }}" label="就读的学校"
+                        custom-style="margin-top:10px" />
+
+                    <van-field model:value="{{ animal }}" is-link readonly label="所属生肖" placeholder="请选择你所属的生肖"
+                        bind:tap="onClickanimal" />
+                    <van-field model:value="{{ birthday }}" placeholder="请输入你生日日期" border="{{ false }}" label="生日日期"
+                        custom-style="margin-top:10px" />
+                    <van-datetime-picker type="date" value="{{ currentDate }}" bind:input="onInput"
+                        min-date="{{ minDate }}" formatter="{{ formatter }}" />
+                    <van-field model:value="{{ username }}" placeholder="请输入你用户名" border="{{ false }}" label="用户名"
+                        custom-style="margin-top:10px" />
+                    <van-field model:value="{{ nickname }}" placeholder="请输入你的昵称" border="{{ false }}" label="昵称"
+                        custom-style="margin-top:10px" />
+                </van-cell-group>
+
+                <view>
+                    <van-button bindtap="save" class="save" type="primary">保存</van-button>
+                    <van-button bindtap="cancel" class="cancel" type="primary">取消</van-button>
+
+                </view>
+
+                <van-popup show="{{ show2 }}" round position="bottom">
+                    <van-cascader wx:if="{{ show2 }}" value="{{ cascaderValue1 }}" title="请选择你的年龄"
+                        options="{{ optionsAge }}" bind:close="onCloseage" bind:finish="onFinish" />
+                </van-popup>
+                <van-popup show="{{ show3 }}" round position="bottom">
+                    <van-cascader wx:if="{{ show3 }}" value="{{ cascaderValue2 }}" title="请选择你所属的生肖"
+                        options="{{ optionsAnimal }}" bind:close="onCloseanimal" bind:finish="onFinish" />
+                </van-popup>
+
+
+            </form>
+        </van-popup>
+    </view>
+
+
+</view>

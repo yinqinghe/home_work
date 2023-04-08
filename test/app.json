@@ -1,0 +1,48 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/index/index",
+        "pages/friends/friends",
+        "pages/person/person",
+        "pages/document-f/document-f",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/personMessage/personMessage",
+        "pages/myWork/myWork",
+        "pages/myFriend/myfriend",
+        "pages/myLike/mylike",
+        "pages/textEdit/textEdit",
+        "pages/item-detail/item-detail"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "家庭作品记录系统",
+        "navigationBarTextStyle": "black"
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "ec-canvas": "/components/echarts/ec-canvas",
+        "navigation": "/components/navigation/navigation",
+        "van-button": "@vant/weapp/button/index",
+        "van-calendar": "@vant/weapp/calendar/index",
+        "van-field": "@vant/weapp/field/index",
+        "van-uploader": "@vant/weapp/uploader/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-tabbar": "@vant/weapp/tabbar/index",
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+        "van-search": "@vant/weapp/search/index",
+        "van-grid": "@vant/weapp/grid/index",
+        "van-grid-item": "@vant/weapp/grid-item/index",
+        "van-image": "@vant/weapp/image/index",
+        "van-notify": "@vant/weapp/notify/index",
+        "van-checkbox": "@vant/weapp/checkbox/index",
+        "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+        "van-popup": "@vant/weapp/popup/index",
+        "van-cascader": "@vant/weapp/cascader/index",
+        "van-empty": "@vant/weapp/empty/index",
+        "van-tag": "@vant/weapp/tag/index",
+        "van-overlay": "@vant/weapp/overlay/index",
+        "van-rate": "@vant/weapp/rate/index"
+    }
+}

@@ -1,0 +1,24 @@
+<!--pages/my.wxml-->
+<text>pages/friends.wxml</text>
+
+<navigation class="navigation"></navigation>
+<view class="show-pic" hover-class="none" hover-stop-propagation="false">
+    <van-grid square>
+  <van-grid-item use-slot wx:for="{{ 8 }}"  wx:for-item="index" >
+  <van-image
+  width="100"
+  height="100"
+    lazy-load
+    use-loading-slot
+      src="https://img.yzcdn.cn/vant/apple-{{ index + 1 }}.jpg"
+>
+ <van-loading slot="loading" type="spinner" size="20" vertical />
+</van-image>
+  </van-grid-item> 
+  <van-image
+  width="100"
+  height="100"
+      src="http://127.0.0.1:8080/images/11.jpg"
+/>
+</van-grid>
+</view>

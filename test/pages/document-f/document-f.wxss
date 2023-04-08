@@ -1,0 +1,125 @@
+/* pages/document-f/document-f.wxss */
+
+/* 将view元素设置为Flexbox布局，并占据整个父容器的空间 */
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    height: 100%;
+    width: 100%;
+}
+
+.addWork {
+    position: fixed;
+    float: right;
+    top: 600px;
+    right: 20px;
+    flex-shrink: 0;
+    /* 防止按钮尺寸影响其他元素 */
+}
+
+
+/* 将van-empty元素本身设置为具有实际高度和宽度的块级元素 */
+.van-empty {
+    display: block;
+    margin: auto;
+    /* 居中显示 */
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.tag-style {
+    font-size: large;
+    left: 10px;
+    margin-left: 20px;
+}
+
+.btn1-style {
+    position: absolute !important;
+    top: 35px;
+    font-size: large;
+    /* right: 55px; */
+}
+
+.btn2-style {
+    position: absolute !important;
+    top: 35px;
+    right: 55px;
+}
+
+.rate-s {
+    position: relative;
+    left: 50px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f8f8f8;
+    padding: 20rpx;
+}
+
+.list-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 220rpx;
+    background-color: #fff;
+    border-radius: 10rpx;
+    margin-bottom: 20rpx;
+    box-shadow: 0 2rpx 6rpx rgba(0, 0, 0, 0.1);
+}
+
+.item-img {
+    width: 28%;
+    height: 95%;
+    border-radius: 10px;
+}
+
+.item-info {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 68%;
+    height: 100%;
+    padding: 0 10rpx;
+}
+
+.item-title {
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #333;
+}
+
+/* .item-time {
+    padding-top: 20px;
+} */
+
+.item-desc {
+    font-size: 24rpx;
+    color: #666;
+}
+
+.item-type {
+    position: relative !important;
+    float: right !important;
+}
