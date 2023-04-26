@@ -1,0 +1,50 @@
+/* pages/register/register.wxss */
+/* register.wxss */
+/* 标题 */
+.head {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 80rpx;
+}
+
+.tiltle {
+    margin-left: 20rpx;
+}
+
+.tiltle_healthy {
+    font-size: 40rpx;
+    font-weight: bold;
+}
+
+.tiltle_xiaoya {
+    font-size: 40rpx;
+    color: #06c8ad;
+    font-weight: bold;
+}
+
+
+.container {
+    margin-top: 50rpx;
+}
+
+.van-cell--required .van-cell__right-icon {
+    color: #f00;
+}
+
+.van-fields {
+    position: relative !important;
+    margin-top: 20px;
+    bottom: 50px;
+    padding-top: 50px;
+}
+
+.button {
+    position: relative;
+    /* left: 10%; */
+    top: 40px;
+    padding-left: 60px;
+    padding-right: 80px;
+}

@@ -1,0 +1,31 @@
+<!--pages/item-detail/item-detail.wxml-->
+
+
+<view>
+    <view>
+        <text class="label-t">作业作品详细内容</text>
+
+    </view>
+
+    <van-cell-group inset>
+        <van-cell value-class="title" title="标题" value="{{title}}" />
+        <van-cell value-class="content" title="内容" value="{{content1}}" label="描述信息" />
+    </van-cell-group>
+
+
+    <vant-image src="http://127.0.0.1:8888/medias/RVN2T2tSRU5LZnd0Nj.jpg" wx:if="{{true}}"></vant-image>
+    <view>
+        <view >
+            <rich-text class="container" nodes="{{richText}}"></rich-text>
+            <!-- <editor id="editor" class="ql-container editor" show-img-size bindblur="onEditorBlur"
+                placeholder="{{placeholder}}" showImgSize showImgToolbar showImgResize bindstatuschange="onStatusChange"
+                read-only="{{readOnly}}" bindinput="onInput" model:value="{{richText}}" bindready="onEditorReady">
+            </editor> -->
+      
+        </view>
+              <view style="text-align: center;">
+                <video style="top:20px"  model:src="{{video}}" wx:if="{{video}}"></video>
+                <!-- <image model:src="{{image}}" wx:if="{{image}}" /> -->
+            </view>
+    </view>
+</view>

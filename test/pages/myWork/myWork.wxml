@@ -1,0 +1,7 @@
+<!--pages/myWork/myWork.wxml-->
+<text class="text_t">作业作品好友评价数据统计分析</text>
+
+<view class="ec-container">
+     <ec-canvas id="mychart" canvas-id="echart-pie" ></ec-canvas>
+
+</view>

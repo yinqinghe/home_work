@@ -1,0 +1,87 @@
+<!--pages/document-f/document-f.wxml-->
+
+<view>
+    <!-- <video src="http://127.0.0.1:8888/images/77yHRGVsZXRlIOi1q+.mp4"></video> -->
+
+    <van-share-sheet show="{{ showShare }}" title="立即分享给好友" options="{{ options }}" bind:select="onSelect"
+        bind:close="onClose" data-id="{{share_item}}" />
+    <view>
+        <text>作业分类 : </text>
+        <van-dropdown-menu active-color="#1989fa">
+            <van-dropdown-item bind:change="choose" value="{{ value1 }}" options="{{ option1 }}" title="全部类型" />
+            <van-dropdown-item bind:change="select_date" value="{{ value2 }}" options="{{ option2 }}" title="时间" />
+        </van-dropdown-menu>
+        <view>
+            <!-- <van-tag bindtap="choose_a" data-id="0" custom-class="tag-style" color="#e2e2e2" text-color="#5d00ff"
+                size="large">全部类型</van-tag> -->
+            <!-- <view bindlongpress="onLongPress" data-id="{{item.workid}}" wx:for="{{myLabel}}" wx:key="index"
+                class="containers">
+                <van-tag bindtap="choose_a" data-id="1" custom-class="tag-style" color="#e2e2e2" text-color="#5d00ff"
+                    size="large">{{item.work_name}}</van-tag>
+            </view> -->
+
+        </view>
+        <van-button bindtap="addWork" type="primary" id='work' custom-class="addWork">添加作业作品</van-button>
+    </view>
+
+    <view class="page clearfix" id="myElement">
+
+        <view class="container">
+            <view wx:if="{{show_all}}">
+                <view bindlongpress="onLongPress" data-type="{{item.type}}" data-id="{{item.id}}" class="list-item"
+                    wx:for="{{list_cate}}" wx:key="index">
+                    <image class="item-img" src="{{item.image}}"></image>
+                    <view class="item-info" id="item{{item.id}}">
+                        <view data-index="{{index}}" class="{{selected == index ? '' : 'show-btn'}}" bindtap="show_btn">
+                            <van-button data-type="{{item.type}}" data-id="{{item.id}}" class='btn1-style'
+                                bindtap="onViewClick" round type="info">查看</van-button>
+                            <van-button data-type="{{item.type}}" data-id="{{item.id}}" class='btn2-style'
+                                bindtap="onEditClick" round type="info">修改</van-button>
+                            <van-button data-type="{{item.type}}" data-id="{{item.id}}" class='btn3-style'
+                                bindtap="onShareClick" round type="info">分享</van-button>
+                        </view>
+                        <view data-index="{{index}}" class="{{selected == index ? 'hidden' : ''}}"
+                            bindtap="onItemClick">
+                            <view class="item-title">{{item.title}}<van-tag class="item-type" type="success"
+                                    size="large">
+                                    {{item.workcategory[0].work_name}}</van-tag>
+                            </view>
+                            <view class="item-time">作品发布时间: {{item.createDate}}
+                                <van-rate value="{{ item.rate }}" size="{{ 18 }}" color="#ffd21e" void-icon="star"
+                                    void-color="#eee" custom-class="rate-s" readonly="true" />
+                            </view>
+
+                            <view class="item-type">作品类型 <van-tag class="item-type" size="medium" plain round
+                                    type="primary">
+                                    {{item.type}}</van-tag>
+                            </view>
+                            <view class="item-desc">{{item.desc}}</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- <view class="list-item" wx:for="{{list_items}}" wx:key="index">
+                <image class="item-img" src="{{item.image}}"></image>
+                <view class="item-info"  bindtap="onItemClick">
+                    <view wx:if="{{showbtn}}">
+                        <van-button data-id="{{item.id}}" class='btn1-style' bindtap="onViewClick" round type="info">查看</van-button>
+                        <van-button data-id="{{item.id}}" class='btn2-style' bindtap="onEditClick" round type="info">修改</van-button>
+                    </view>
+                    <block wx:if="{{showcontent}}">
+                      <view class="item-title">{{item.title}}<van-tag class="item-type" type="success" size="large">
+                            {{item.category}}</van-tag>
+                    </view>
+                    <view class="item-time">作品发布时间: {{item.createDate}}</view>
+                    <view class="item-type">作品类型 <van-tag class="item-type" size="medium" plain round type="primary">
+                            {{item.type}}</van-tag>
+                    </view>
+                    <view class="item-desc">{{item.desc}}</view>
+                    </block>
+                </view>
+            </view> -->
+        </view>
+        <van-empty wx:if="{{false}}" description="空空如也" style="height:100%;width:100%" />
+    </view>
+</view>
+
+<navigation class="navigation"></navigation>

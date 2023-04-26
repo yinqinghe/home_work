@@ -1,0 +1,25 @@
+/* pages/myWork/myWork.wxss */
+
+.ec-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 35vh;
+    padding-top: 50px;
+}
+
+ec-canvas {
+    width: 100%;
+    height: 150%;
+    padding-top: 50px;
+}
+
+.text_t {
+    position: relative;
+    top: 20px;
+    bottom: 50px;
+    left: 100px;
+    font-size: large;
+}

@@ -1,0 +1,78 @@
+<!--pages/person/person.wxml-->
+<view class="" hover-class="none" hover-stop-propagation="false">
+    <navigation class="navigation"></navigation>
+    <scroll-view class='scbg' scroll-y='true'>
+        <view class="parent_catainer">
+            <!-- 头部 -->
+            <view class="container_head">
+                <image class="head_img" src="http://127.0.0.1:8888/medias/TFAxc3M0TTZ0TEpNMj.jpg"></image>
+                <view class="head_pers_info" bindtap="head_pers_info">
+                    <view class="head_pic">
+                        <van-image round width="6rem" height="6rem" model:src="{{picture}}" />
+                    </view>
+                    <view class="inf_content">
+                        <text class="user_info">姓名: {{pname}}</text>
+                        <text class="family_info_ct_phone">年龄: {{age}}</text>
+                        <text class="family_info_ct">现就读学校: {{school}} </text>
+                    </view>
+                </view>
+            </view>
+
+            <view class="userItemListView">
+                <view class="my_priview_md" bindtap="personMessage">
+                    <text>个人信息</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="myWork">
+                    <text>我的作业作品</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="myCategory">
+                    <text>我创建的分类项</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="myfriend_share">
+                    <text>我的朋友分享</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="myshare">
+                    <text>我的分享</text>
+                    <view class="arrow"></view>
+                </view>
+
+            </view>
+
+            <view class="userItemListView">
+                
+                <view class="my_priview_md" bindtap="updatepassword">
+                    <text>修改密码</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="aboutus" hidden="true">
+                    <text>关于我们</text>
+                    <view class="arrow"></view>
+                </view>
+                <view class="my_priview_md" bindtap="logout" wx:if="{{islogin}}">
+                    <text>退出登录</text>
+                    <view class="arrow"></view>
+                </view>
+
+                <block wx:else>
+                    <view class="my_priview_md" bindtap="login">
+                        <text>登录</text>
+                        <view class="arrow"></view>
+                    </view>
+                    <view class="my_priview_md" bindtap="register">
+                        <text>注册</text>
+                        <view class="arrow"></view>
+                    </view>
+                </block>
+                <view>
+                    <van-button type="primary" bindtap="lookcookie">查看cookie</van-button>
+
+                </view>
+            </view>
+
+        </view>
+    </scroll-view>
+</view>

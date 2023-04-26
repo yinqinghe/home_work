@@ -1,0 +1,33 @@
+<!--pages/myLabel/myLabel.wxml-->
+<text>我创建的标签</text>
+<view>
+<van-button bindtap="addLabel" type="primary" id='work' custom-class="addWork">添加我的分类</van-button>
+    
+</view>
+
+
+<view>
+    <view bindlongpress="onLongPress" data-id="{{item.workid}}" wx:for="{{myLabel}}" wx:key="index" class="containers">
+
+        <van-cell custom-class="cell-t" title="{{item.work_name}}" value="{{item.createDate}}" />
+    </view>
+</view>
+
+
+
+<view class='popup'>
+    <van-popup custom-style="width:350px;height:200px; border-radius: 10px;top:380px" show="{{ show }}"
+        bind:close="onClose">
+        <form>
+            <van-cell-group>
+                <van-field model:value="{{ work_name }}" placeholder="请输入你要添加的分类名称" border="{{ false }}" label="分类名称"
+                    custom-style="margin-top:10px" />
+            </van-cell-group>
+            <view>
+                <van-button bindtap="save" class="save" type="primary">添加</van-button>
+
+            </view>
+
+        </form>
+    </van-popup>
+</view>

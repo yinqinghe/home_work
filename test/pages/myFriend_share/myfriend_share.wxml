@@ -1,0 +1,46 @@
+<!--pages/myFriend/myfriend.wxml-->
+<text>我的朋友分享</text>
+<view class="container">
+    <view class="list-item" wx:for="{{list_items}}" wx:key="index" wx:for-item="item">
+        <image class="item-img" src="{{item.image}}"></image>
+        <view class="item-info" id="item{{item.id}}" data-id="{{item.id}}" bindtap="onItemClick">
+            <view data-index="{{index}}" class="{{selected == index ? '' : 'show-btn'}}" bindtap="show_btn">
+                <van-button  data-id="{{item.id}}" class='btn1-style' bindtap="onViewClick" round type="info">查看</van-button>
+            </view>
+            <view data-index="{{index}}" class="{{selected == index ? 'hidden' : ''}}" bindtap="onItemClick">
+                <view class="item-title">{{item.workid_d[0].title}}<van-tag class="item-type" type="success" size="large">
+                    {{item.workid_d[0].workcategory[0].work_name}}</van-tag>
+            </view>
+            <view class="item-time">作品发布时间: {{item.createDate}}
+            <van-rate data-id="{{item.id}}"
+                value="{{ item.j_rate }}" size="{{ 18 }}" color="#ffd21e" void-icon="star"
+                void-color="#eee" bind:change="onChange" custom-class="rate-s"
+                /></view>
+            
+            <view class="item-type">作者: {{item.author}}         作品类型 <van-tag class="item-type" size="medium" plain round type="primary">
+                    {{item.type}}</van-tag>
+            </view>
+            <view class="item-desc">{{item.desc}}</view>
+            </view>
+        </view>
+</view>
+    <view class="list-item" wx:for="{{list_items.video}}" wx:key="index">
+        <image class="item-img" src="{{item.image}}"></image>
+        <view class="item-info"  bindtap="onItemClick">
+            <view wx:if="{{showbtn}}">
+                <van-button data-id="{{item.id}}" class='btn1-style' bindtap="onViewClick" round type="info">查看</van-button>
+                <van-button data-id="{{item.id}}" class='btn2-style' bindtap="onEditClick" round type="info">修改</van-button>
+            </view>
+            <block wx:if="{{showcontent}}">
+                <view class="item-title">{{item.title}}<van-tag class="item-type" type="success" size="large">
+                    {{item.category}}</van-tag>
+            </view>
+            <view class="item-time">作品发布时间: {{item.createDate}}</view>
+            <view class="item-type">作品类型 <van-tag class="item-type" size="medium" plain round type="primary">
+                    {{item.type}}</van-tag>
+            </view>
+            <view class="item-desc">{{item.desc}}</view>
+            </block>
+        </view>
+    </view>
+</view>
