@@ -44,7 +44,6 @@ public class UserWorkItemController {
         //QueryWrapper<WorkShare> queryWrapper1 = new QueryWrapper<>();        //获取用户的ID值
         //queryWrapper1.eq("can_userid",cuserid);
         List<WorkShare> works =  workShareMapper.myShare(my_name);
-        //System.out.println(works);
         for (WorkShare work : works) {
             System.out.println(work.getWorkid());
         }
@@ -101,6 +100,7 @@ public class UserWorkItemController {
     @ApiOperation(value = "用户搜索作业作品item",notes = "用户搜索作业作品item")
     @GetMapping("/my/search")
     public Result search(String token,String key){
+        System.out.println("searchsearchseach");
         String username= JwtUtils.getClaimByToken(token).getSubject();
         QueryWrapper<cUser> queryWrapper = new QueryWrapper<>();        //获取用户的ID值
         queryWrapper.eq("username",username);

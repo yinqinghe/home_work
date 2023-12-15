@@ -15,13 +15,14 @@ public interface WorkShareMapper extends BaseMapper<WorkShare> {
     @Results({
             @Result(column = "id",property = "id"),
             @Result(column = "workid",property = "workid"),
+            @Result(column = "videoid",property = "videoid"),
             @Result(column = "can_userid",property = "can_userid"),
             @Result(column = "workid",property = "workid_d",javaType = List.class,
                     one = @One(select = "com.example.home_work.mapper.UploadImageMapper.selectByID")
             ),
-            //@Result(column = "can_userid_d",property = "can_userid_d",javaType = List.class,
-            //        one = @One(select = "com.example.home_work.mapper.cUserMapper.selectByID")
-            //),
+            @Result(column = "videoid",property = "videoid_d",javaType = List.class,
+                    one = @One(select = "com.example.home_work.mapper.UploadVideoMapper.selectByID")
+            ),
     })
     List<WorkShare> selectShare(String can_userid);
 
@@ -29,6 +30,7 @@ public interface WorkShareMapper extends BaseMapper<WorkShare> {
     @Results({
             @Result(column = "id",property = "id"),
             @Result(column = "workid",property = "workid"),
+            @Result(column = "videoid",property = "videoid"),
             @Result(column = "can_userid",property = "can_userid"),
             @Result(column = "workid",property = "workid_d",javaType = List.class,
                     one = @One(select = "com.example.home_work.mapper.UploadImageMapper.selectByID")
@@ -36,9 +38,9 @@ public interface WorkShareMapper extends BaseMapper<WorkShare> {
             @Result(column = "can_userid",property = "can_userid_d",javaType = List.class,
                     one = @One(select = "com.example.home_work.mapper.cUserMapper.selectByID")
             ),
-            //@Result(column = "can_userid_d",property = "can_userid_d",javaType = List.class,
-            //        one = @One(select = "com.example.home_work.mapper.cUserMapper.selectByID")
-            //),
+            @Result(column = "videoid",property = "videoid_d",javaType = List.class,
+                    one = @One(select = "com.example.home_work.mapper.UploadVideoMapper.selectByID")
+            ),
     })
     List<WorkShare> myShare(String can_userid);
 

@@ -31,6 +31,16 @@ public class WorkShare {
     private List<UploadImage> workid_d;
     @TableField(exist = false)
     private List<cUser> can_userid_d;
+    @TableField(exist = false)
+    private List<Uploadvideo> videoid_d;
+
+    public List<Uploadvideo> getVideoid_d() {
+        return videoid_d;
+    }
+
+    public void setVideoid_d(List<Uploadvideo> videoid_d) {
+        this.videoid_d = videoid_d;
+    }
 
     public List<cUser> getCan_userid_d() {
         return can_userid_d;
@@ -123,8 +133,10 @@ public class WorkShare {
                 ", author='" + author + '\'' +
                 ", j_content='" + j_content + '\'' +
                 ", j_rate='" + j_rate + '\'' +
+                ", videoid='" + videoid + '\'' +
                 ", workid_d=" + workid_d +
                 ", can_userid_d=" + can_userid_d +
+                ", videoid_d=" + videoid_d +
                 '}';
     }
 }

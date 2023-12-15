@@ -18,6 +18,22 @@ import java.util.List;
 public class UserinfoController {
     @Autowired
     private cUserMapper cuserMapper;
+    @ApiOperation(value = "获取所有用户信息")
+    @GetMapping("/all/user")
+    public List<cUser> allUser(){
+        //String username= JwtUtils.getClaimByToken(token).getSubject();
+        //System.out.println("登录用户："+username);
+        QueryWrapper<cUser> queryWrapper = new QueryWrapper<>();
+        //queryWrapper.eq("username",username);
+        List<cUser> res = cuserMapper.selectList(queryWrapper);
+        System.out.println("查询结果："+res);
+        return res;
+    }
+
+
+
+
+
     @ApiOperation(value = "获取登录用户信息")
     @GetMapping("/cuser/info")
     public List<cUser> user_Info(String token){

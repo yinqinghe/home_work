@@ -50,4 +50,18 @@ public interface UploadImageMapper extends BaseMapper<UploadImage> {
             ),
     })
     List<UploadImage> selectImageAndCategory(String cuserid);
+
+    @Select("select * from work_image")
+    @Results({
+            @Result(column = "id",property = "id"),
+            @Result(column = "image_url",property = "image_url"),
+            @Result(column = "title",property = "title"),
+            @Result(column = "content",property = "content"),
+            @Result(column = "cuserid",property = "cuserid"),
+            @Result(column = "work_categoryid",property = "work_categoryid"),
+            @Result(column = "work_categoryid",property = "workcategory",javaType = List.class,
+                    one = @One(select = "com.example.home_work.mapper.WorkCategoryMapper.selectByID")
+            ),
+    })
+    List<UploadImage> selectImageAndCategory_admin();
 }

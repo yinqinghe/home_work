@@ -86,7 +86,16 @@ public class UploadFileController {
         QueryWrapper<UploadImage> queryWrapper = new QueryWrapper<>();
         queryWrapper.eq("id",upLoadImage.getId());
         List<UploadImage> res = uploadImageMapper.selectList(queryWrapper);
+        String regex = "src=\\\"(.[^\\\"]*)";
+        Matcher matcher = Pattern.compile(regex).matcher(upLoadImage.getContent());
 
+        if (matcher.find()) {
+            String group = matcher.group(1);
+            System.out.println(group);
+            String result = upLoadImage.getContent().replaceAll(group, "http://127.0.0.1:8888/" + res.get(0).getImage_url()+"\" style=\"height:100%;width:100%");
+            System.out.println("++++++++++++--------"+result);
+            upLoadImage.setContent(result);
+        }
         System.out.println("查询结果："+ res.get(0).getId());
 
         uploadImageMapper.update(upLoadImage,queryWrapper);
@@ -110,7 +119,7 @@ public class UploadFileController {
         if (matcher.find()) {
             String group = matcher.group(1);
             System.out.println(group);
-            String result = upLoadImage.getContent().replaceAll(group, "http://127.0.0.1:8888/medias/" + filename+"\" style=\"height:200px;width:210px");
+            String result = upLoadImage.getContent().replaceAll(group, "http://127.0.0.1:8888/medias/" + filename+"\" style=\"height:100%;width:100%");
             System.out.println("++++++++++++--------"+result);
             upLoadImage.setContent(result);
         }
@@ -159,7 +168,7 @@ public class UploadFileController {
         if (matcher.find()) {
             String group = matcher.group(1);
             System.out.println(group);
-            String result = upLoadImage.getContent().replaceAll(group, "http://127.0.0.1:8888/medias/" + filename+"\" style=\"height:200px;width:210px");
+            String result = upLoadImage.getContent().replaceAll(group, "http://127.0.0.1:8888/medias/" + filename+"\" style=\"height:100%;width:100%");
             System.out.println(result);
             upLoadImage.setContent(result);
         }

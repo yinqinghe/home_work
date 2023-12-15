@@ -26,7 +26,7 @@ public class UserFriendsController {
 
     @ApiOperation(value = "用户添加好友",notes = "用户添加好友")
     @PostMapping("/friend/add")
-    public Result uploadtext(String token, Friends friends,String friend_name) throws IOException {
+    public Result addFriend(String token, Friends friends,String friend_name) throws IOException {
 
         String username= JwtUtils.getClaimByToken(token).getSubject();
         QueryWrapper<cUser> queryWrapper = new QueryWrapper<>();
